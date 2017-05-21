@@ -1,0 +1,41 @@
+﻿<div class="menu">
+    <div class="back"> <img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div>
+    <div class="name">{{vm.user.firstName}}</div>
+    <div class="last">{{hour}}:{{minute}}</div>
+    <a href="#!/login" class="btn btn-primary logout" ng-click="logout()">Logout</a>
+</div>
+
+<ol class="chat" ng-repeat="message in messageLists track by $index">
+    <li class="other" ng-if="message.who == 0">
+        <div class="userName">{{message.name}}</div>
+        <div class="msg">
+            <p>{{message.text}}!</p>
+            <span class="dateMess">{{date | date:'dd-MM-yyyy'}}</span> <time>{{hourMess}}:{{minuteMess}}</time>
+        </div>
+    </li>
+    <li class="self" ng-if="message.who == 1">
+        <div class="userName">{{vm.user.firstName}}</div>
+        <div class="msg">
+            <p>{{message.text}}</p>
+            <span class="dateMess">{{myDate | date:'dd-MM-yyyy'}}</span> <time>{{myHourMess}}:{{myMinuteMess}}</time>
+            <!--<time>{{message.time}}</time>-->
+        </div>
+    </li>
+</ol>
+<input class="textarea textMess" type="text" ng-model="val" placeholder="create your message"/><div class="emojis" ng-click="send()"></div>
+<!--<h1>Hi {{vm.user.firstName}}!</h1>-->
+<!--<p>You're logged in!!</p>-->
+<!--<h3>All registered users:</h3>-->
+<!--<ul>-->
+    <!--<li ng-repeat="user in vm.allUsers">-->
+        <!--{{user.username}} ({{user.firstName}} {{user.lastName}})-->
+        <!-- - <a ng-click="vm.deleteUser(user.id)">Delete</a>-->
+    <!--</li>-->
+<!--</ul>-->
+<!--<p><textarea rows="2" cols="25" name="text" ng-model="val"></textarea></p>-->
+<!--<div ng-repeat="chat in chats">-->
+    <!--<p>{{chat.text}} {{chat.time}}</p>-->
+<!--</div>-->
+<!--<button ng-click="send()">send</button>-->
+<!--<p>&nbsp;</p>-->
+<!--<p><a href="#!/login" class="btn btn-primary">Logout</a></p>-->
